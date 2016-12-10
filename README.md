@@ -77,11 +77,13 @@ mkvirtualenv cv
 Installing setuptools, pip, wheel...done.
 ```
 
-### Step.6  
-install Numpy
--> skip (installed)
+### Step.5  
+install Numpy on "cv" virtualenv environment.
+```
+pip install numpy
+```
 
-### Step.7  
+### Step.6  
 install Cmake
 
 ```
@@ -96,7 +98,7 @@ brew install jpeg libpng libtiff openexr
 brew install eigen tbb
 ```
 
-### Step.8  
+### Step.7/8  
 compile and install OpenCV 3!!!
 
 clone from git.
@@ -119,9 +121,6 @@ HEAD detached at 3.1.0
 
 Confirm latest versioin or Dowonload from:
 [http://opencv.org/downloads.html](http://opencv.org/downloads.html)
-
-make opencv_contrib's CMakeLists.txt before cmake
-[https://github.com/opencv/opencv_contrib/tree/3.1.0/modules](https://github.com/opencv/opencv_contrib/tree/3.1.0/modules)
 
 ```
 cd opencv_contrib/modules
@@ -168,7 +167,6 @@ In macOS 10.12, apple removed most of QTKit's components...
 [OpenCV 3.1 can't compile on macOS 10.12 beta because QTKit #6913](https://github.com/opencv/opencv/issues/6913 "OpenCV 3.1 can't compile on macOS 10.12 beta because QTKit #6913")
 
 
-
 ```
 make -j4
 ...
@@ -200,7 +198,7 @@ mv /usr/local/include/opencv /usr/local/include/opencv.old
 ```
 
 
-### step.9
+### step.9  
 check OpenCV3 is installed
 
 ```
@@ -211,6 +209,7 @@ ls -l cv2.so
 installation succeed!!!
 
 verify in python.
+
 ```
 python
 >>> import cv2
@@ -220,9 +219,41 @@ python
 quiita ━━━ヽ(ヽ(ﾟヽ(ﾟ∀ヽ(ﾟ∀ﾟヽ(ﾟ∀ﾟ)ﾉﾟ∀ﾟ)ﾉ∀ﾟ)ﾉﾟ)ﾉ)ﾉ━━━!!!! 
 
 
-## Other Links  
+### Other Links  
 Installation in Linux  
 [http://docs.opencv.org/2.4/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation](http://docs.opencv.org/2.4/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation)
+
+
+
+## Using virtualenv
+
+[virtulaenv](https://virtualenv.pypa.io/en/stable/ "virtulaenv")
+
+### on terminal
+
+
+
+We create virtualenv named "cv" .
+to go into virtualenv
+
+```
+workon cv
+```
+
+to go out virtualenv  
+
+```
+deactivate
+```
+
+### on IntelliJ IDEA
+[IntelliJ IDEAのPythonプラグインからもvirtualenvが使える](http://qiita.com/todogzm/items/973f35e4f7f269062b8e "IntelliJ IDEAのPythonプラグインからもvirtualenvが使える")
+
+* create New Python Project
+* Configure SDK -> Python SDK -> select python SDK on "cv" virtualenv path.
+or We can create virtualenv on IntelliJ !!!
+
+
 
 
 
