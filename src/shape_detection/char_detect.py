@@ -14,21 +14,28 @@ import numpy as np
 def main():
 
     # マスター：「永」のゴシック体と明朝体
-    ei_gothic = cv2.imread("./../../image/ei_gothic.png")
-    ei_mincho = cv2.imread("./../../image/ei_mincho.png")
+    ei_gothic = "gothic", cv2.imread("./../../image/ei_gothic.png")
+    ei_mincho = "mincho", cv2.imread("./../../image/ei_mincho.png")
+    ei_master = [ei_gothic, ei_mincho]
 
     # サンプル：習字で書かれた文字
-    ei001 = cv2.imread("./../../image/ei001.png")
-    ei002 = cv2.imread("./../../image/ei002.png")
+    ei001 = "ei001", cv2.imread("./../../image/ei001.png")
+    ei002 = "ei002", cv2.imread("./../../image/ei002.png")
+    ei_sample = [ei001, ei002]
 
-    # 特徴量抽出
-    kp_m, des_m = detect_AKAZE(ei_gothic, "ei_gothic.png")
-    kp_s, des_s = detect_AKAZE(ei001, "ei001.png")
 
-    # マッチング
-    master = "ei_gothic", ei_gothic, kp_m, des_m
-    sample = "ei001", ei001, kp_s, des_s
-    match_BF(master, sample)
+    for master_name, master_img in ei_master:
+        for sample_name, sample_img in ei_sample:
+
+            # 特徴量抽出
+            kp_m, des_m = detect_AKAZE(master_img, master_name)
+            kp_s, des_s = detect_AKAZE(sample_img, sample_name)
+
+            # マッチング
+            master = master_name, master_img, kp_m, des_m
+            sample = sample_name, sample_img, kp_s, des_s
+            match_BF(master, sample)
+
 
 
 # AKAZEで特徴量(KeyPoint, Descriptor)抽出
@@ -39,7 +46,7 @@ def detect_AKAZE(img, name):
     print("{}: keypoints: {}, descriptors: {}".format(name, len(kp), des.shape))
 
     cv2.drawKeypoints(img, kp, img, (0, 255, 0))
-    cv2.imwrite("./../../image/AKAZE_" + name, img)
+    cv2.imwrite("./../../image/AKAZE_{}.png".format(name), img)
 
     return kp, des
 
