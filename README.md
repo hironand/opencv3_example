@@ -1,5 +1,11 @@
 # OpenCV3 quickstart on Python2.7, OSX
 
+## Goal
+* Running OpenCV3 using Python2.7 in OSX
+* Using virtualenv
+* Create OpenCV3 python project ong Intellij IDEA using virtualenv
+* Make some example python program and run. 
+
 ## My Environment
 * Mac OSX 10.12 Sierra
 * Python 2.7 (installed)
@@ -22,7 +28,8 @@ Github
 Install OpenCV 3.0 and Python 2.7+ on OSX  
 [http://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/](http://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/)
 
-### step.1   
+
+  
 install Xcode  
 -> Skip (installed)
 
